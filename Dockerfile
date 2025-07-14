@@ -24,7 +24,3 @@ RUN apk add --no-cache \
 RUN git clone --branch ${EVCC_BRANCH} ${EVCC_REPO} /build \
     && cd /build \
     && make install
-
-# run.sh kopieren
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
