@@ -1,21 +1,30 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/armv7-base:latest
-FROM ${BUILD_FROM}
+ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:latest
+FROM $BUILD_FROM
 
-# Install build dependencies
-RUN apk add --no-cache go git make bash curl
-
-# Set env vars
-ENV GO111MODULE=on
+ENV LANG C.UTF-8
 ENV EVCC_REPO=https://github.com/dsluschz/DSEVCCAWB.git
 ENV EVCC_BRANCH=main
 
-# Clone and build
+# Abhängigkeiten installieren
+RUN apk add --no-cache \
+    git \
+    make \
+    curl \
+    go \
+    yarn \
+    nodejs \
+    npm \
+    bash \
+    gcc \
+    g++ \
+    libc-dev \
+    linux-headers
+
+# evcc klonen und bauen
 RUN git clone --branch ${EVCC_BRANCH} ${EVCC_REPO} /build \
     && cd /build \
-    && go build -o /usr/bin/evcc .
+    && make install
 
-# Add run script
+# run.sh kopieren
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
-
-CMD [ "/run.sh" ]
