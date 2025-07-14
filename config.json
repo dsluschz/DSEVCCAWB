@@ -1,7 +1,7 @@
 {
   "name": "DSEVCCAWB",
   "version": "0.1.0",
-  "slug": "DSEVCCAWB",
+  "slug": "dsevccawb",
   "description": "DSEVCCAWB – dsluschz Electric Vehicle Charge Controller",
   "arch": ["armv7", "aarch64"],
   "startup": "services",
