@@ -7,7 +7,7 @@
   "startup": "services",
   "boot": "auto",
   "ports": {
-    "7070/tcp": 7070
+    "7070/tcp": "7070"
   },
   "host_network": true,
   "privileged": ["NET_ADMIN", "SYS_ADMIN"],
