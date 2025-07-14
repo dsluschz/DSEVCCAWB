@@ -1,0 +1,16 @@
+{
+  "name": "DSEVCCAWB",
+  "version": "0.1.0",
+  "slug": "DSEVCCAWB",
+  "description": "DSEVCCAWB – dsluschz Electric Vehicle Charge Controller",
+  "arch": ["armv7", "aarch64"],
+  "startup": "services",
+  "boot": "auto",
+  "ports": {
+    "7070/tcp": 7070
+  },
+  "host_network": true,
+  "privileged": ["NET_ADMIN", "SYS_ADMIN"],
+  "options": {},
+  "schema": {}
+}
